@@ -201,3 +201,99 @@ function sayBye() {
 
 // Passing function as argument
 greet(sayBye);
+
+
+// pure vs impure function
+
+// pure function ---> function je same input par same output aapse ane koi bahar na state
+// ne modify na kare (pure function ---> je function bahar na state ne modify na kare )
+
+let a = 10;
+
+function abcd_pure() {
+    console.log("Hello");
+}
+
+// impure function ---> function je same input par different output aapse athava bahar na
+// state ne modify kare (impure function ---> je function bahar na state ne modify kare )
+
+function abcd_impure() {
+    a++;
+    console.log(a);
+}
+
+// closure function
+
+// function je potana parent function na variables ne access kari shake(return thava
+// valo function use karshe parent function na koi variable) (function within function)
+
+function outer() {
+    let count = 0;
+
+    function inner() {
+        count++; // accessing outer(parent) function variable
+        console.log(count);
+    }
+
+    return inner;
+}
+
+let func = outer();
+func();
+
+// lexical scope --> nested function can access variables declared in their outer scope
+
+function outer1() {
+    let outer_var = "outer function variable";
+
+    function inner1() {
+        let inner_var = "inner function variable";
+
+        console.log(outer_var); // outer1 function variable write in console log
+
+        function most_inner() {
+            console.log(inner_var);
+            console.log(outer_var);
+
+            let most_inner_var = "most inner function variable";
+
+            function abc() {
+                console.log(most_inner_var);
+                console.log(inner_var);
+                console.log(outer_var);
+            }
+
+            abc();
+        }
+
+        most_inner();
+    }
+
+    inner1();
+}
+
+outer1();
+
+// IIFE - Immediately Invoked Function Expression
+(function () {})(); // function je declare karta j call thai jaye
+
+(function () {
+    console.log("This is IIFE Function");
+})();
+
+// Hoisting in function
+abcde();
+
+function abcde() {
+    console.log("This is hoisting function");
+}
+
+// hoistedFunction1();
+// let hoistedFunction1 = function () {
+//     console.log("Hoisted Function Expression called");
+// };
+
+// hoistedFunction2();
+// let hoistedFunction2 = () => {
+//     console.log("Hoisted Arrow Function called");
+// };
