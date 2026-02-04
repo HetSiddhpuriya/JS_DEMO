@@ -129,3 +129,60 @@ let temp_data = data.map(val => {
         return val;
     }
 });
+
+// .map() Method:
+
+// map tyare j use karvu ke jare ek new array create
+// karvo chhe
+
+// first map create a black array -- only for
+// understanding
+
+let data1 = [10, 20, 50, 40, 15];
+
+// same like a for each loop but map return a new
+// array
+
+let temp_data1 = data1.map(val => {
+    if (val > 20) {
+        return val;
+    }
+});
+
+// if you want to show only expensive producat on
+// your homepage
+
+// if you want to filter producat based on price
+
+let product_type = ["Mobile", "Tablet", "Laptop",
+"Mouse", "Keyborad"];
+
+let filter_product_type = product_type.filter((type)=> {
+    if (type === "Tablet") {
+        return ["Tab 9i", "Tab Pro", "Tab Air"];
+    }
+
+    if (type === "Mobile") {
+        return ["Mobile Pro", "Mobile Air", "Mobile Mini"];
+    }
+});
+
+// reduce
+// reduce tyare j use thai kr jyare aek single value calculate karvi hoy from array
+
+let total_price = [15, 68, 52, 58, 45, 48];
+
+let final_price = total_price.reduce((accumulator, val) => {
+    return accumulator + val;
+}, 0); // initial value of accumulator
+
+// 0 + 10 => 10
+// 10 + 10 => 20
+// 20 + 10 => 30
+// 30 + 10 => 40
+
+// accumulator --> je value function ma return thase
+// te accumulator ma store thase --> accumulator name
+// change kari sako cho
+
+// val --> array ni darek value
