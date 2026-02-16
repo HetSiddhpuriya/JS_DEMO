@@ -51,3 +51,10 @@ colorPicker.addEventListener("input", function(event) {
     console.log("Selected Color:", selectedColor);
     bigBox.style.backgroundColor = selectedColor;
 });
+
+// 3. Submit
+let form = document.querySelector("form");
+
+form.addEventListener("submit", () => {
+    document.body.style.backgroundColor = "black";
+});
