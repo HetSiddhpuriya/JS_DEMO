@@ -127,3 +127,17 @@ mainList.addEventListener("change", function (e) {
         }
     }
 });
+
+// live character conter
+let counter = document.querySelector("#counter");
+let count = document.querySelector("#count");
+
+counter.addEventListener("input", (dets) => {
+    console.log(dets.target.value.length);
+    let cl = dets.target.value.length;
+    let limit = count.textContent = 10 - cl;
+    if (limit < 0) {
+        alert("Limit Reached");
+        counter.disabled = true;
+    }
+});
