@@ -51,6 +51,47 @@
       .controls {
         padding: 10px;
       }
+      .outer_div {
+        width: 300px;
+        height: 300px;
+        background-color: #3498db; /* Blue */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* The middle container */
+      .inner_div {
+        width: 150px;
+        height: 150px;
+        background-color: #2ecc71; /* Green */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+      }
+
+      /* The Button */
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        color: #333;
+        font-weight: bold;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          background-color 0.2s;
+      }
+
+      /* Hover effect for the button */
+      .btn:hover {
+        background-color: #f1f1f1;
+        transform: scale(1.05);
+      }
     </style>
   </head>
   <body>
@@ -78,9 +119,36 @@
     </div>
 
     <form action="" id="form">
-      <input type="text" name="" id="">
-      <input type="submit" value="Submit">
+      <input type="text" name="" id="" />
+      <input type="submit" value="Submit" />
     </form>
+    <br /><br />
+
+    <div class="outer_div">
+      <div class="inner_div">
+        <button class="btn">Click Me</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Todo List</h3>
+      <ul id="main-list">
+        <li>
+          <input type="checkbox" class="check" /> <span>Buy groceries</span>
+        </li>
+        <li>
+          <input type="checkbox" class="check" /> <span>Finish homework</span>
+        </li>
+        <li>
+          <input type="checkbox" class="check" /> <span>Go to the gym</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Cart</h3>
+      <ul id="cart-list"></ul>
+    </div>
 
     <script src="event.js"></script>
   </body>

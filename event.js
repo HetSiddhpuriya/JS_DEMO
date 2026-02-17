@@ -58,3 +58,72 @@ let form = document.querySelector("form");
 form.addEventListener("submit", () => {
     document.body.style.backgroundColor = "black";
 });
+
+// Event Object:
+// sel.addEventListener("change", (dets) = {
+//      console.log(dets); ==> dets //that called event object
+// });
+// target, type, preventDefault
+// target --> that show element
+// type ->show Event Type
+// preventDefault --> use for html-form-- prevent form to refresh and lean details
+
+
+// event delegation ==> darek child par event listener na lagavata only parent par event listner lagavvu
+// Event Bubbling and Capturing
+// Event Bubbling -> jena par event aave tena par listener na hoy to aapdu event tena parent par listener gotase ane aavu karta karta upar traf move karshe
+
+
+let inner_div = document.querySelector(".inner_div")
+let outer_div = document.querySelector(".outer_div")
+let btn1 = document.querySelector(".btn")
+
+inner_div.addEventListener("click" , () => {
+    console.log("inner_div clicked")
+})
+btn1.addEventListener("click" , () => {
+    console.log("btn clicked")
+})
+outer_div.addEventListener("click" , () => {
+    console.log("outer_div clicked")
+})
+
+//use case: make it to do list thing
+// when you click on text that show strike using bubbuling
+// crete list that show shopping things use css (text decoration -> line-through)
+// Badha checkbox select karo
+const mainList = document.querySelector("#main-list");
+const cartList = document.querySelector("#cart-list");
+
+mainList.addEventListener("change", function (e) {
+    
+    if (e.target.classList.contains("check")) {
+        const checkbox = e.target;
+        const listItem = checkbox.parentElement;
+        const itemText = listItem.querySelector("span").innerText;
+
+        if (checkbox.checked) {
+            // 1. Add Strike-through
+            listItem.style.textDecoration = "line-through";
+            listItem.style.color = "gray";
+
+            // 2. Add to Cart
+            // We give it a unique ID or class so we can find it later to remove it
+            let cartItem = document.createElement("li");
+            cartItem.innerText = itemText;
+            cartItem.setAttribute("data-item", itemText); // Helper to identify the item
+            cartList.appendChild(cartItem);
+
+        } else {
+            // 1. Remove Strike-through
+            listItem.style.textDecoration = "none";
+            listItem.style.color = "black";
+
+            // 2. Remove from Cart
+            const itemToRemove = cartList.querySelector(`[data-item="${itemText}"]`);
+            if (itemToRemove) {
+                itemToRemove.remove();
+            }
+        }
+    }
+});
