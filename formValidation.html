@@ -3,25 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modernized Form</title>
+    <style>
+        /* General Reset & Background */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Form Container */
+        form {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Styling Inputs, Textarea, and Select */
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Focus states for better accessibility */
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #4A90E2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+        }
+
+        textarea {
+            resize: vertical; /* Users can only resize up/down, not sideways */
+            min-height: 100px;
+        }
+
+        /* Submit Button Styling */
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4A90E2;
+            color: white;
+            padding: 14px 20px;
+            margin: 20px 0 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ABD;
+        }
+    </style>
 </head>
 <body>
-    <form>
-    <input type="text" id="username" placeholder="username" />
-    <br />
-    <input type="password" placeholder="Password" />
-    <br />
-    <input type="email" placeholder="Email@email.com" />
-    <br />
-    <textarea id="textarea" cols="30" rows="10"></textarea>
-    <br />
-    <select id="select">
-        <option>Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-    </select> <br>
 
-    <input type="submit" value="submit">
+    <form action="#">
+        <h2>Create Account</h2>
+        
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" placeholder="Password" required />
+        <input type="email" placeholder="Email@email.com" required />
+        
+        <textarea id="textarea" placeholder="Tell us about yourself..."></textarea>
+        
+        <select id="select">
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <input type="submit" value="Sign Up">
+    </form>
+
 </body>
 </html>
