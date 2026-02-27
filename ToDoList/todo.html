@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 500px;
+    }
+
+    /* Top Card */
+    .top-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-card input {
+      border: none;
+      background: transparent;
+      font-size: 18px;
+      width: 70%;
+      border-bottom: 2px solid #ddd;
+      outline: none;
+      padding-bottom: 5px;
+    }
+
+    .add-btn {
+      background: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Todo List Card */
+    .list-card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .todo-item:last-child {
+      border-bottom: none;
+    }
+
+    .todo-text.completed {
+      text-decoration: line-through;
+      color: #aaa;
+    }
+
+    .actions button {
+      border: none;
+      padding: 8px 10px;
+      border-radius: 6px;
+      margin-left: 8px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .edit-btn {
+      background: #28a745;
+    }
+
+    .delete-btn {
+      background: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Input Section -->
+    <div class="top-card">
+      <input type="text" id="taskInput" placeholder="Organize Books">
+      <button class="add-btn" onclick="addTask()">Add</button>
+    </div>
+
+    <!-- Todo List -->
+    <div class="list-card" id="taskList">
+      <!-- Tasks will appear here -->
+    </div>
+
+  </div>
+
+<script src="todo.js"></script>
+</body>
+</html>
