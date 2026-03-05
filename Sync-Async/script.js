@@ -15,6 +15,122 @@ console.log("Hello"); // sync
 // ASYNC -- aevo code ke je ready thai pachhi chale
 
 // Callback Pattern and Callback hell
+// Callback Pattern
 function abc(val) {
-    
+    setTimeout(() => {
+        console.log("Value", val);
+    },
+        Math.floor(Math.random() * 10) * 1000,
+    );
+}
+abc(50);
+
+function callbackPattern(fnc) {
+    setTimeout(() => {
+        console.log(fnc());
+    },
+        Math.floor(Math.random() * 10) * 1000,
+    );
+}
+
+callbackPattern(function () {
+    return "Hello! How Are You ?";
+});
+
+// ek function ne tame ek bijo function na parameter ma mokali aapo chho, to te parameter walu fnc ne keval chhe callbackfunction
+// callback hell
+// JavaScript ni library (React/Angular/vue) function hoy tena use karvo -> callback hell
+
+function showProfile(username, cb) {
+    console.log("Fetching All Post Data.....");
+    setTimeout(() => {
+        cb({ id: 1, username });
+    }, 2000);
+}
+
+function ShowPost(id, cb) {
+    console.log("Fetching All Posts ....");
+    setTimeout(() => {
+        cb({ id: id, posts: ["post1", "post2", "post3"] });
+    }, 3000);
+}
+
+function SavePost(id, cb) {
+    console.log("Fetching Saved Posts...");
+    setTimeout(() => {
+        cb({ id: id, saved: ["post4", "post5", "post6"] });
+    }, 3500);
+} // Already into Libery
+
+function like(id, cb) {
+    console.log("Counting Likes....");
+    setTimeout(() => {
+        cb({ id: id, likes: 50 });
+    }, 3700);
+}
+
+function comments(id, cb) {
+    console.log("Counting comments....");
+    setTimeout(() => {
+        cb({ id: id, comments: 50 });
+    }, 4000);
+}
+
+showProfile("testuser", function (data) {
+    console.log(data);
+    ShowPost(data.id, function (posts) {
+        console.log(posts);
+        SavePost(data.id, function (saved) {
+            console.log(saved);
+            like(data.id, function (like) {
+                console.log(like);
+                comments(data.id, function (com) {
+                    console.log(com);
+                });
+            });
+        });
+    });
+}); // Callback Hell
+
+// Promises: resolve and reject with then and catch
+// jyare tame ek promise banavo chho, tyare te promise be(two) states mathi koi ek state ma jase.
+// one state: resolve
+// second state: reject
+// and we have to write a code for both states
+let pr = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        let rn = Math.floor(Math.random() * 10);
+        if (rn > 5) {
+            resolve("resolve " + rn);
+        } else {
+            reject("reject " + rn);
+        }
+    }, 3000);
+});
+
+pr.then(function (val) {
+    console.log(val);
+}).catch(function (val) {
+    console.log(val);
+});
+
+// async await --> try and catch
+let pr1 = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        let rn = Math.floor(Math.random() * 10);
+        if (rn > 5) {
+            resolve("async resolve " + rn);
+        } else {
+            reject("async reject " + rn);
+        }
+    }, 3000);
+});
+
+async function acb() {
+    try {
+        let val = await pr1;
+        console.log(val);
+    } catch (error) {
+        console.error(error);
+    }
 }
