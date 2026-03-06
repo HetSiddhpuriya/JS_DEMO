@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>API Cards</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+.flip-card-inner{
+transition: transform 0.6s;
+transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner{
+transform: rotateY(180deg);
+}
+
+.flip-card-front,.flip-card-back{
+backface-visibility:hidden;
+}
+
+.flip-card-back{
+transform: rotateY(180deg);
+}
+</style>
+
+</head>
+
+<body class="bg-gray-100 p-8">
+
+<h1 class="text-3xl font-bold text-center mb-8">API Data Cards</h1>
+
+<div id="cardContainer"
+class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+</div>
+
+<div class="text-center mt-8">
+<button onclick="getNewData()"
+class="bg-indigo-600 text-white px-6 py-2 rounded-lg">
+Refresh Data
+</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
